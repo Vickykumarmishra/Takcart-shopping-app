@@ -1,6 +1,6 @@
 import React from 'react'
 import { quantity } from './Home'
-import { useContext } from 'react'
+import { useContext,useState } from 'react'
 
 import { Route ,Routes,NavLink } from 'react-router-dom'
 

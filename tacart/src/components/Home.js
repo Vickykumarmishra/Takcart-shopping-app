@@ -3,20 +3,15 @@ import { createContext,useContext } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 import Navbar from './Navbar';
+
 const quantity=createContext();
 const quantity2=createContext();//context for passing values of 2nd image
 const quantity3=createContext();//context for passing values of 3rd image
 const quantity4=createContext();
 
-const price=createContext();
 
-
-
-const p1=150;
-const p2=250;
-const p3=300;
-const p4=165;
 export default function Home() {
    
    
@@ -26,7 +21,6 @@ export default function Home() {
     const [data4,setData4]=useState(0);
 
     
-
     const [price, setPrice]=useState(0);
     const [price2, setPrice2]=useState(0);
     const [price3, setPrice3]=useState(0);
@@ -37,7 +31,6 @@ export default function Home() {
       setPrice(price+150);
     }
 
-    
     function remover(){
         if(data!=0){       //pahle cart me negative usestate ka value chala ja raha tha isliye if lagaya
         setData(data-1);
@@ -48,8 +41,6 @@ export default function Home() {
     function adder2(){
         setData2(data2 +1);
         setPrice2(price2+250);
-
-
     }
    
     function remover2(){
@@ -80,6 +71,13 @@ export default function Home() {
         setPrice4(price4-165);}
     }
 
+    const myTimeout=setTimeout(greet,1000);
+  
+    function greet(){
+  
+      alert('NAMASTE DEAR USER ,TAKCART WELCOMES YOU!')
+    }
+
   return (
     <div>
 
@@ -91,7 +89,10 @@ export default function Home() {
 <quantity3.Provider value={data3}>
 
     <quantity4.Provider value={data4}>
-        <Navbar/>
+
+      
+    <Navbar/>
+  
     </quantity4.Provider>
 
 </quantity3.Provider>
@@ -101,44 +102,43 @@ export default function Home() {
 
 </quantity.Provider>
 
-      
 {/**grids taken and cards put inside columns */}
 {/**grid for mens clothing section */}
-      <div className="container text-center">
+      <div className="container text-center" >
   <div className="row">
 
     <div className="col">
         <p>Black and grey jacket</p>
        
       <img src="blackcloth.jpg" className='img-thumbnail' style={{height:'20rem'}}/>
-      <p> price:{p1}</p>
+      <p> price:150₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data}</h6>
       <button className='btn btn-primary' onClick={adder}>Add To Cart</button>
       <button className='btn btn-danger'  onClick={remover}>Remove</button>
     </div>
 
     <div className="col">
-        <p>Formal black dress for office</p>
+        <p>Formal black dress</p>
       <img src='formal men.jpg' className='img-thumbnail' style={{height:'20rem'}}/>
-      <p> price:{p2}</p>
+      <p> price:250₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data2}</h6>
       <button className='btn btn-primary' onClick={adder2}>Add To Cart</button>
       <button className='btn btn-danger' onClick={remover2} >Remove</button>
     </div>
 
     <div className="col">
-        <p>Aggressor Flex - Tactical Pants </p>
+        <p>Tactical Pants</p>
       <img src='black pant.jpg' className='img-thumbnail' style={{height:'20rem'}}></img>
-      <p> price:{p3}</p>
+      <p> price:300₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data3}</h6>
       <button className='btn btn-primary' onClick={adder3} >Add To Cart</button>
       <button className='btn btn-danger' onClick={remover3} >Remove</button>
     </div>
 
     <div className="col">
-        <p>Black and white Combo</p>
+        <p>Black-white Combo</p>
       <img src='white and black.jpg' className='img-thumbnail' style={{height:'20rem'}}></img>
-      <p> price:{p4}</p>
+      <p> price:165₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data4}</h6>
       <button className='btn btn-primary'  onClick={adder4} >Add To Cart</button>
       <button className='btn btn-danger' onClick={remover4}>Remove</button>
@@ -148,9 +148,8 @@ export default function Home() {
 </div>
 {/**grids for mens clothing section end here */}
 
-
 <div>
-    <p>Total price of added Items in cart={price}</p>
+    <p style={{color:'red',fontStyle:'bold'}}>Total price of added Items in cart={price+price2+price3+price4}₹</p>
 </div>
 
 
@@ -203,4 +202,3 @@ export default function Home() {
 
 export {quantity,quantity2,quantity3}
 export{quantity4}
-export {price}
