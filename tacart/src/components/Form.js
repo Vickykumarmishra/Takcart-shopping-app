@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import {useFormik} from 'formik'; //install formik before starting
 import * as Yup from 'yup';
-import { motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion/dist/framer-motion"; 
 
 window.a=0//global declaration,isko kahi v likhenge to ye global hi kahlayega
 const Form = () => {
@@ -48,14 +48,11 @@ email:Yup.string()
   console.log(formik.errors)
    return (
 
-    <>
- 
-
-
-    
-   <center><div className="container"  style={{marginTop:'5rem'}}>
+    <div>
+   <center><div className="container shadow p-3 mb-5 bg-body-tertiary rounded"  style={{marginTop:'5rem'}}>
+    <img src='logo-color.png' className="img-thumbnail shadow p-3 mb-5 bg-body-tertiary rounded" style={{height:'15rem',width:'20rem',marginRight:'2rem' ,border:'0.1rem solid white'}}/>
         
-       <form  className="btn btn-outline-success" style={{backgroundColor:"purple"}} onSubmit={formik.handleSubmit}>
+       <form  className="btn btn-outline-success " style={{backgroundColor:"purple"}} onSubmit={formik.handleSubmit}>
 
        <div className="input-group">
   <span className="input-group-text">First and last name</span>
@@ -78,8 +75,9 @@ email:Yup.string()
       <input type="password" className="form-control" id="inputPassword" name='password' onChange={formik.handleChange}  value={formik.values.password}/>
     </div>
   </div>
-  {formik.errors.password && <p style={{color:'red'}}> {formik.errors.password}</p>}     
-        <p  style={{color:'red'} }>Double click to save your data</p>
+  {formik.errors.password && <p style={{color:'red'}}> {formik.errors.password}</p>}    
+
+        <motion.p  animate={{scale:1.2,color:'yellow'}} initial={{scale:1,color:'red'}} transition={{duration:1,repeat:Infinity}} style={{color:'red'}}>Double click to save your data</motion.p>
       <br></br>
       {
      window.a==0?<button type='submit' className="btn btn-primary"  id="savedata" style={{color:'white'}}>SaveData</button>:<h1></h1>
@@ -100,7 +98,7 @@ email:Yup.string()
       
        
        
-       </div></center>  </>
+       </div></center>  </div>
    )
  }
  export default Form;

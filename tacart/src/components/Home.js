@@ -2,8 +2,8 @@ import React from 'react'
 import { createContext,useContext } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
-
+import { motion } from 'framer-motion/dist/framer-motion';
+import { Typography,Rating } from '@mui/material';
 import Navbar from './Navbar';
 
 const quantity=createContext();
@@ -71,12 +71,12 @@ export default function Home() {
         setPrice4(price4-165);}
     }
 
-    const myTimeout=setTimeout(greet,1000);
+    /*setTimeout(greet,1000);
   
     function greet(){
   
       alert('NAMASTE DEAR USER ,TAKCART WELCOMES YOU!')
-    }
+    }*/
 
   return (
     <div>
@@ -108,6 +108,7 @@ export default function Home() {
   <div className="row">
 
     <div className="col">
+    <motion.h6 animate={{scale:1.1}} transition={{duration:'1',repeat:'Infinity'}} style={{background:'red',color:'white'}}>40% discount</motion.h6>
         <p>Black and grey jacket</p>
        
       <img src="blackcloth.jpg" className='img-thumbnail' style={{height:'20rem'}}/>
@@ -115,33 +116,49 @@ export default function Home() {
       <h6 style={{background:'orange'}}>Total items added:{data}</h6>
       <button className='btn btn-primary' onClick={adder}>Add To Cart</button>
       <button className='btn btn-danger'  onClick={remover}>Remove</button>
+
+      <Rating name="size-medium" defaultValue={3} />
+
     </div>
 
     <div className="col">
-        <p>Formal black dress</p>
+    <motion.h6 animate={{scale:1.1}} transition={{duration:'1',repeat:'Infinity'}} style={{background:'red',color:'white'}}>20% discount</motion.h6>
+        <p>Formal black --dress</p>
+
       <img src='formal men.jpg' className='img-thumbnail' style={{height:'20rem'}}/>
       <p> price:250₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data2}</h6>
       <button className='btn btn-primary' onClick={adder2}>Add To Cart</button>
       <button className='btn btn-danger' onClick={remover2} >Remove</button>
+
+      <Rating name="size-medium" defaultValue={5} />
+
     </div>
 
     <div className="col">
-        <p>Tactical Pants</p>
+    <motion.h6 animate={{scale:1.1}} transition={{duration:'1',repeat:'Infinity'}} style={{background:'red',color:'white'}}>25% discount</motion.h6>
+        <p>Tactical Black Pants</p>
       <img src='black pant.jpg' className='img-thumbnail' style={{height:'20rem'}}></img>
       <p> price:300₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data3}</h6>
       <button className='btn btn-primary' onClick={adder3} >Add To Cart</button>
       <button className='btn btn-danger' onClick={remover3} >Remove</button>
+
+      <Rating name="size-medium" defaultValue={4} />
+
     </div>
 
     <div className="col">
+    <motion.h6  animate={{scale:1.1}} transition={{duration:'1',repeat:'Infinity'}} style={{background:'red',color:'white'}}>50% discount</motion.h6>
         <p>Black-white Combo</p>
       <img src='white and black.jpg' className='img-thumbnail' style={{height:'20rem'}}></img>
       <p> price:165₹</p>
       <h6 style={{background:'orange'}}>Total items added:{data4}</h6>
       <button className='btn btn-primary'  onClick={adder4} >Add To Cart</button>
       <button className='btn btn-danger' onClick={remover4}>Remove</button>
+
+      <Rating name="size-medium" defaultValue={4} />
+
     </div>
 
   </div>

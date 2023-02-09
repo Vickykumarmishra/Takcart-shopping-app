@@ -17,7 +17,7 @@ export default function Navbar() {
         <nav className="navbar bg-body-tertiary">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-      <img src="logo-color.png" alt="Logo" width="150" height="80" className="d-inline-block align-text-top"/> 
+      <img src="logo-color.png" alt="Logo" width="150" height="80" style={{border:'0.1rem solid white'}} className="d-inline-block align-text-top"/> 
     </a>
 
    <div>
