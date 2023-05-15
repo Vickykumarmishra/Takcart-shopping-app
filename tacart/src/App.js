@@ -4,6 +4,7 @@ import Home from './components/Home';
 import {BrowserRouter, NavLink,Route,Routes } from 'react-router-dom';
 import React from 'react';
 import Form from './components/Form';
+import Footer from './components/Footer';
 //var x=document.getElementById("firstName").value;
 function App() {
  
@@ -27,7 +28,7 @@ function App() {
      </Routes>
      
      </BrowserRouter>
-
+     
     </div>
   );
 }

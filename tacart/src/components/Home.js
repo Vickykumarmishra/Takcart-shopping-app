@@ -2,7 +2,7 @@ import React from 'react'
 import { createContext,useContext } from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { motion } from 'framer-motion/dist/framer-motion';
+import {AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
 import { Typography,Rating } from '@mui/material';
 import Navbar from './Navbar';
 

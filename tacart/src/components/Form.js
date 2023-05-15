@@ -3,10 +3,13 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import {useFormik} from 'formik'; //install formik before starting
 import * as Yup from 'yup';
-import {AnimatePresence, motion} from "framer-motion/dist/framer-motion"; 
+import {AnimatePresence, motion} from 'framer-motion/dist/framer-motion'; 
+import Navbar2 from "./Navbar2";
 
 window.a=0//global declaration,isko kahi v likhenge to ye global hi kahlayega
 const Form = () => {
+
+  
   
   //console.log(window.a+'is value of a before onsubmit')
   const formik= useFormik({
